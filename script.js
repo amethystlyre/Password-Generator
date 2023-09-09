@@ -40,7 +40,7 @@ function generatePassword() {
 
   //check that the user has chosen at least one of the four character types.
   if (!userSelectionRange) {
-    window.alert("You need to include at least one character type. Please chose again.");
+    window.alert("You need to include at least one character type. Please choose again.");
   }
   else {
     //generate password based on the length requested by user
