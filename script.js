@@ -57,7 +57,7 @@ function userPasswordLengthPrompt() {
   return window.prompt("How many characters do you require in the random password? Minimum characters is 8 and maximum characters is 128. \nPlease enter a number between 8 to 128.");
 }
 
-//Funtion for requesting user input on character type options
+//Function for requesting user input on character type options
 function userCriteriaSelection(options, nameOfOption) {
   if (window.confirm(`Would you like to include ${nameOfOption}? If not, click Cancel.`)) {
     return options;
