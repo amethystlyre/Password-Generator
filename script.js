@@ -12,7 +12,7 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-//Set constant values for the character options that users can chose from when generating random password
+//Create an object to store the character options that users can chose from when generating random password
 var passwordOptions = {
   "lower case letters": "abcdefghijklmnopqrstuvwxyz",
   "upper case letters": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -30,7 +30,7 @@ function generatePassword() {
   //check that the user has enter a valid password length and assign to variable "userPwLength"
   userPwLength = checkPasswordLength(userPasswordLengthPrompt());
 
-  //Ask user if whether to include each charater types below
+  //Ask user whether to include each charater types stored in the object passwordOptions below
   for(const option in passwordOptions){
     userSelectionRange += userCriteriaSelection(passwordOptions[option], option);
   }
