@@ -12,13 +12,12 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-//Set constant values for the character options that users can choose from when generating random password
-var passwordOptions = {
-  "lower case letters": "abcdefghijklmnopqrstuvwxyz",
-  "upper case letters": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-  "numeric values": "1234567890",
-  "special characters": " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
-}
+//Set constant values for the character options that users can chose from when generating random password
+const LOWER_CASE_OPTIONS = 'abcdefghijklmnopqrstuvwxyz';
+const UPPER_CASE_OPTIONS = LOWER_CASE_OPTIONS.toUpperCase();
+const NUMBER_OPTIONS = "1234567890";
+const SPECIAL_CHAR_OPTIONS = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+
 
 //Main function for generating passwords
 function generatePassword() {
@@ -31,9 +30,13 @@ function generatePassword() {
   userPwLength = checkPasswordLength(userPasswordLengthPrompt());
 
   //Ask user if whether to include each charater types below
-  for(const property in passwordOptions){
-    userSelectionRange += userCriteriaSelection(passwordOptions[property], property);
-  }
+  userSelectionRange += userCriteriaSelection(LOWER_CASE_OPTIONS, "lower case letters");
+
+  userSelectionRange += userCriteriaSelection(UPPER_CASE_OPTIONS, "upper case letters");
+
+  userSelectionRange += userCriteriaSelection(NUMBER_OPTIONS, "numeric values");
+
+  userSelectionRange += userCriteriaSelection(SPECIAL_CHAR_OPTIONS, "special characters");
 
   //check that the user has chosen at least one of the four character types.
   if (!userSelectionRange) {
@@ -64,7 +67,7 @@ function userCriteriaSelection(options, nameOfOption) {
 }
 
 //A helper function to check if the password length given by the user is a valid number between 8 to 128 and not empty.
-//If input response is invalid, then set password length as 8 characters by default.
+//If input response is invalid, then set password length as 8 chars by default.
 function checkPasswordLength(userResponse) {
   if (isNaN(parseInt(userResponse, 10)) || userResponse == null) {
     window.alert("You have not provided a number. Setting password length as 8 characters by default.");
