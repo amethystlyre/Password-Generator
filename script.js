@@ -13,7 +13,7 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 //Set constant values for the character options that users can chose from when generating random password
-const LOWER_CASE_OPTIONS = 'abcdefghijklmnopqrstuvwxyz';
+const LOWER_CASE_OPTIONS = "abcdefghijklmnopqrstuvwxyz";
 const UPPER_CASE_OPTIONS = LOWER_CASE_OPTIONS.toUpperCase();
 const NUMBER_OPTIONS = "1234567890";
 const SPECIAL_CHAR_OPTIONS = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
