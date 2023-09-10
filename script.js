@@ -12,12 +12,13 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-//Set constant values for the character options that users can chose from when generating random password
-const LOWER_CASE_OPTIONS = "abcdefghijklmnopqrstuvwxyz";
-const UPPER_CASE_OPTIONS = LOWER_CASE_OPTIONS.toUpperCase();
-const NUMBER_OPTIONS = "1234567890";
-const SPECIAL_CHAR_OPTIONS = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-
+//Create an object to store the character options that users can chose from when generating random password
+var passwordOptions = {
+  "lower case letters": "abcdefghijklmnopqrstuvwxyz",
+  "upper case letters": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  "numeric values": "1234567890",
+  "special characters": " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+}
 
 //Main function for generating passwords
 function generatePassword() {
@@ -29,14 +30,10 @@ function generatePassword() {
   //check that the user has enter a valid password length and assign to variable "userPwLength"
   userPwLength = checkPasswordLength(userPasswordLengthPrompt());
 
-  //Ask user if whether to include each charater types below
-  userSelectionRange += userCriteriaSelection(LOWER_CASE_OPTIONS, "lower case letters");
-
-  userSelectionRange += userCriteriaSelection(UPPER_CASE_OPTIONS, "upper case letters");
-
-  userSelectionRange += userCriteriaSelection(NUMBER_OPTIONS, "numeric values");
-
-  userSelectionRange += userCriteriaSelection(SPECIAL_CHAR_OPTIONS, "special characters");
+  //Ask user whether to include each charater types stored in the object passwordOptions below
+  for(const option in passwordOptions){
+    userSelectionRange += userCriteriaSelection(passwordOptions[option], option);
+  }
 
   //check that the user has chosen at least one of the four character types.
   if (!userSelectionRange) {
