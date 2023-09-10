@@ -5,7 +5,7 @@ A single webpage designed to generate a random password for it's users based on 
 ## Description
 
 When user clicks on the Generate Password button, the webpage should ask the user to provide the length of the password characters required.
-Then it will ask the user whether the password should include lower case letters, upper case letters, numbers or special characters and generate the password accordingly.
+Then it will ask the user whether the password should include lower case letters, upper case letters, numbers or special characters. After the user responds to the series of questions, the webpage will generate the random password accordingly in the text box.
 
 ![Preview of password generator](assets/images/Screenshot1.png)
 ![Preview of password generator](assets/images/Screenshot2.png)
