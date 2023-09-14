@@ -31,10 +31,11 @@ function generatePassword() {
   userPwLength = checkPasswordLength(userPasswordLengthPrompt());
 
   //Ask user whether to include each charater types stored in the object passwordOptions below
-  if (userPwLength !==0){
-  for(const option in passwordOptions){
-    userSelectionRange += userCriteriaSelection(passwordOptions[option], option);
-  }} else {
+  if (userPwLength !== 0) {
+    for (const option in passwordOptions) {
+      userSelectionRange += userCriteriaSelection(passwordOptions[option], option);
+    }
+  } else {
     return "";
   }
 
