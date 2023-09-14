@@ -31,8 +31,11 @@ function generatePassword() {
   userPwLength = checkPasswordLength(userPasswordLengthPrompt());
 
   //Ask user whether to include each charater types stored in the object passwordOptions below
+  if (userPwLength !==0){
   for(const option in passwordOptions){
     userSelectionRange += userCriteriaSelection(passwordOptions[option], option);
+  }} else {
+    return "";
   }
 
   //check that the user has chosen at least one of the four character types.
@@ -64,14 +67,13 @@ function userCriteriaSelection(options, nameOfOption) {
 }
 
 //A helper function to check if the password length given by the user is a valid number between 8 to 128 and not empty.
-//If input response is invalid, then set password length as 8 chars by default.
 function checkPasswordLength(userResponse) {
   if (isNaN(parseInt(userResponse, 10)) || userResponse == null) {
-    window.alert("You have not provided a number. Setting password length as 8 characters by default.");
-    return 8;
+    window.alert("You have not provided a number. You must enter a number between 8 and 128.");
+    return 0;
   } else if (parseInt(userResponse, 10) < 8 || parseInt(userResponse, 10) > 128) {
-    window.alert("The number you have entered is outside the acceptable range of 8 to 128. Setting password length as 8 characters by default.");
-    return 8;
+    window.alert("The number you have entered is outside the acceptable range of 8 to 128. You must enter a number between 8 and 128.");
+    return 0;
   }
   else {
     return parseInt(userResponse, 10);
